@@ -16,4 +16,5 @@
  - Checks if they are of type 'item' 
  - Sets the 'Tooltip' value to 2.
   
-  
+# Building
+ - Need to include LSLib in the project reference https://github.com/Norbyte/lslib
