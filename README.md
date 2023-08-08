@@ -9,7 +9,7 @@
  The easier method to install is to use https://github.com/LaughingLeader/BG3ModManager - 
  
  1. Open BG3ModManager, (download @ https://github.com/LaughingLeader/BG3ModManager/releases/latest/download/BG3ModManager_Latest.zip)  
- 2. Select 'File', 'Import Mod', then select the HighlightEverything.zip (download @ https://github.com/shalzuth/HighlightEverything/releases/latest/download/HighlightEverything.zip)
+ 2. Select 'File', 'Import Mod', then select the HighlightEverything.zip (download @ https://github.com/shalzuth/BG3HighlightEverything/releases/latest/download/HighlightEverything.zip)
   
 # How does it work?
  - Iterates over all entities/RootTemplates 
