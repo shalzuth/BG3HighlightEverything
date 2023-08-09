@@ -2,6 +2,7 @@
 
 var basePath = @"C:\Program Files (x86)\Steam\steamapps\common\Baldurs Gate 3\Data\";
 var pakMod = true;
+var toggleTooltips = true;
 var paks = Directory.GetFiles(basePath);
 foreach (var pakFile in paks)
 {
@@ -58,7 +59,7 @@ if (pakMod)
     var files = Directory.GetFiles("mod", "*", SearchOption.AllDirectories);
     foreach (var file in files)
     {
-        using (var fsFile = LSLib.LS.FilesystemFileInfo.CreateFromEntry(file, file.Replace("mod\\","")))
+        using (var fsFile = LSLib.LS.FilesystemFileInfo.CreateFromEntry(file, file.Replace("mod\\", "")))
             pkg.Files.Add(fsFile);
     }
     using (var pakFile = new LSLib.LS.PackageWriter(pkg, "HighlightEverything.pak"))
@@ -71,4 +72,24 @@ if (pakMod)
     using (var zip = ZipFile.Open("HighlightEverything.zip", ZipArchiveMode.Create))
         zip.CreateEntryFromFile("HighlightEverything.pak", "HighlightEverything.pak");
     File.Delete("HighlightEverything.pak");
+}
+
+
+if (toggleTooltips)
+{
+    var pkg = new LSLib.LS.Package();
+    using (var fsFile = LSLib.LS.FilesystemFileInfo.CreateFromEntry("WorldTooltips.xaml", @"Public\Game\GUI\Widgets\" + "WorldTooltips.xaml"))
+        pkg.Files.Add(fsFile);
+    using (var pakFile = new LSLib.LS.PackageWriter(pkg, "ToggleTooltips.pak"))
+    {
+        pakFile.Write();
+    }
+    if (File.Exists("ToggleTooltips.zip")) File.Delete("ToggleTooltips.zip");
+    using (var zip = ZipFile.Open("ToggleTooltips.zip", ZipArchiveMode.Create))
+        zip.CreateEntryFromFile("WorldTooltips.xaml", @"Public\Game\GUI\Widgets\" + "WorldTooltips.xaml");
+    return;
+    if (File.Exists("ToggleTooltips.zip")) File.Delete("ToggleTooltips.zip");
+    using (var zip = ZipFile.Open("ToggleTooltips.zip", ZipArchiveMode.Create))
+        zip.CreateEntryFromFile("ToggleTooltips.pak", "ToggleTooltips.pak");
+    File.Delete("ToggleTooltips.pak");
 }

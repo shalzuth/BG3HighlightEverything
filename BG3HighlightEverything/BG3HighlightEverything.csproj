@@ -13,4 +13,11 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="WorldTooltips.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
